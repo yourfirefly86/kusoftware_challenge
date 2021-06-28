@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @input.email %>
+</p>
+
+<p>
+  <strong>Firstname:</strong>
+  <%= @input.firstname %>
+</p>
+
+<p>
+  <strong>Lastname:</strong>
+  <%= @input.lastname %>
+</p>
+
+<p>
+  <strong>Language:</strong>
+  <%= @input.language %>
+</p>
+
+<p>
+  <strong>Proficiency:</strong>
+  <%= @input.proficiency %>
+</p>
+
+<%= link_to 'Edit', edit_input_path(@input) %> |
+<%= link_to 'Back', inputs_path %>

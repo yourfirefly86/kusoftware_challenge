@@ -1,0 +1,674 @@
+Started GET "/inputs" for ::1 at 2021-06-27 14:53:18 -0400
+  [1m[35m (4.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 1 pending migration:
+
+20210627184642_create_inputs.rb
+
+
+):
+  
+activerecord (6.1.4) lib/active_record/migration.rb:625:in `check_pending!'
+activerecord (6.1.4) lib/active_record/migration.rb:590:in `block (2 levels) in call'
+activesupport (6.1.4) lib/active_support/evented_file_update_checker.rb:59:in `execute'
+activerecord (6.1.4) lib/active_record/migration.rb:595:in `block in call'
+activerecord (6.1.4) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.4) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.4) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-mini-profiler (2.3.2) lib/mini_profiler/profiler.rb:384:in `call'
+webpacker (5.4.0) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.0) lib/rack/proxy.rb:63:in `call'
+railties (6.1.4) lib/rails/engine.rb:539:in `call'
+puma (5.3.2) lib/puma/configuration.rb:249:in `call'
+puma (5.3.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.3.2) lib/puma/thread_pool.rb:338:in `with_force_shutdown'
+puma (5.3.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.3.2) lib/puma/server.rb:438:in `process_client'
+puma (5.3.2) lib/puma/thread_pool.rb:145:in `block in spawn_thread'
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateInputs (20210627184642)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "inputs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" text, "firstname" text, "lastname" text, "language" text, "proficiency" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210627184642"]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-06-27 18:53:41.397043"], ["updated_at", "2021-06-27 18:53:41.397043"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/inputs" for ::1 at 2021-06-27 14:54:29 -0400
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by InputsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering inputs/index.html.erb within layouts/application
+  [1m[36mInput Load (0.4ms)[0m  [1m[34mSELECT "inputs".* FROM "inputs"[0m
+  ↳ app/views/inputs/index.html.erb:18
+  Rendered inputs/index.html.erb within layouts/application (Duration: 9.3ms | Allocations: 1405)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/laurenyeager/backend/public/packs
+[Webpacker] Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+
+[Webpacker] Hash: e2a8a876c5815bee1e21
+Version: webpack 4.46.0
+Time: 2529ms
+Built at: 06/27/2021 2:54:36 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-e421b4aa3f716bebdab1.js    125 KiB  application  [emitted] [immutable]  application
+js/application-e421b4aa3f716bebdab1.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-e421b4aa3f716bebdab1.js js/application-e421b4aa3f716bebdab1.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 492 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 6386.3ms | Allocations: 19188)
+Completed 200 OK in 6422ms (Views: 6392.0ms | ActiveRecord: 0.4ms | Allocations: 23183)
+
+
+Started GET "/inputs/new" for ::1 at 2021-06-27 14:54:40 -0400
+Processing by InputsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering inputs/new.html.erb within layouts/application
+  Rendered inputs/_form.html.erb (Duration: 45.8ms | Allocations: 5792)
+  Rendered inputs/new.html.erb within layouts/application (Duration: 49.2ms | Allocations: 6161)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 60.3ms | Allocations: 9577)
+Completed 200 OK in 82ms (Views: 61.5ms | ActiveRecord: 2.1ms | Allocations: 14578)
+
+
+Started POST "/inputs" for ::1 at 2021-06-27 14:54:55 -0400
+Processing by InputsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "input"=>{"email"=>"Lauren.e.yeager@gmail.com", "firstname"=>"Lauren", "lastname"=>"Yeager", "language"=>"Spanish", "proficiency"=>"5"}, "commit"=>"Create Input"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/inputs_controller.rb:27:in `block in create'
+  [1m[36mInput Create (1.7ms)[0m  [1m[32mINSERT INTO "inputs" ("email", "firstname", "lastname", "language", "proficiency", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "Lauren.e.yeager@gmail.com"], ["firstname", "Lauren"], ["lastname", "Yeager"], ["language", "Spanish"], ["proficiency", 5], ["created_at", "2021-06-27 18:54:55.641204"], ["updated_at", "2021-06-27 18:54:55.641204"]]
+  ↳ app/controllers/inputs_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/inputs_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/inputs/1
+Completed 302 Found in 12ms (ActiveRecord: 3.5ms | Allocations: 3288)
+
+
+Started GET "/inputs/1" for ::1 at 2021-06-27 14:54:55 -0400
+Processing by InputsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mInput Load (0.3ms)[0m  [1m[34mSELECT "inputs".* FROM "inputs" WHERE "inputs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/inputs_controller.rb:62:in `set_input'
+  Rendering layout layouts/application.html.erb
+  Rendering inputs/show.html.erb within layouts/application
+  Rendered inputs/show.html.erb within layouts/application (Duration: 2.2ms | Allocations: 350)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 3778)
+Completed 200 OK in 19ms (Views: 12.5ms | ActiveRecord: 0.3ms | Allocations: 5490)
+
+
+Started GET "/inputs" for ::1 at 2021-06-27 14:55:04 -0400
+Processing by InputsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering inputs/index.html.erb within layouts/application
+  [1m[36mInput Load (0.2ms)[0m  [1m[34mSELECT "inputs".* FROM "inputs"[0m
+  ↳ app/views/inputs/index.html.erb:18
+  Rendered inputs/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 839)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 4265)
+Completed 200 OK in 13ms (Views: 11.5ms | ActiveRecord: 0.2ms | Allocations: 4726)
+
+
+Started GET "/inputs/new" for ::1 at 2021-06-27 14:55:35 -0400
+Processing by InputsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering inputs/new.html.erb within layouts/application
+  Rendered inputs/_form.html.erb (Duration: 4.6ms | Allocations: 1190)
+  Rendered inputs/new.html.erb within layouts/application (Duration: 5.4ms | Allocations: 1301)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.5ms | Allocations: 4717)
+Completed 200 OK in 18ms (Views: 16.4ms | ActiveRecord: 0.0ms | Allocations: 5192)
+
+
+Started POST "/inputs" for ::1 at 2021-06-27 14:56:08 -0400
+Processing by InputsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "input"=>{"email"=>"johndoe@sample", "firstname"=>"John", "lastname"=>"Doe", "language"=>"Jibberish", "proficiency"=>"5"}, "commit"=>"Create Input"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/inputs_controller.rb:27:in `block in create'
+  [1m[36mInput Create (0.8ms)[0m  [1m[32mINSERT INTO "inputs" ("email", "firstname", "lastname", "language", "proficiency", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "johndoe@sample"], ["firstname", "John"], ["lastname", "Doe"], ["language", "Jibberish"], ["proficiency", 5], ["created_at", "2021-06-27 18:56:08.381277"], ["updated_at", "2021-06-27 18:56:08.381277"]]
+  ↳ app/controllers/inputs_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/inputs_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/inputs/2
+Completed 302 Found in 15ms (ActiveRecord: 3.1ms | Allocations: 2515)
+
+
+Started GET "/inputs/2" for ::1 at 2021-06-27 14:56:08 -0400
+Processing by InputsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mInput Load (0.3ms)[0m  [1m[34mSELECT "inputs".* FROM "inputs" WHERE "inputs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/inputs_controller.rb:62:in `set_input'
+  Rendering layout layouts/application.html.erb
+  Rendering inputs/show.html.erb within layouts/application
+  Rendered inputs/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 115)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 3541)
+Completed 200 OK in 17ms (Views: 13.2ms | ActiveRecord: 0.3ms | Allocations: 4549)
+
+
+Started GET "/inputs" for ::1 at 2021-06-27 14:56:17 -0400
+Processing by InputsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering inputs/index.html.erb within layouts/application
+  [1m[36mInput Load (0.3ms)[0m  [1m[34mSELECT "inputs".* FROM "inputs"[0m
+  ↳ app/views/inputs/index.html.erb:18
+  Rendered inputs/index.html.erb within layouts/application (Duration: 4.7ms | Allocations: 948)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.5ms | Allocations: 4376)
+Completed 200 OK in 18ms (Views: 16.2ms | ActiveRecord: 0.3ms | Allocations: 4847)
+
+
+Started DELETE "/inputs/1" for ::1 at 2021-06-27 15:02:06 -0400
+Processing by InputsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/inputs_controller.rb:62:in `set_input'
+  [1m[36mInput Load (0.2ms)[0m  [1m[34mSELECT "inputs".* FROM "inputs" WHERE "inputs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/inputs_controller.rb:62:in `set_input'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/inputs_controller.rb:52:in `destroy'
+  [1m[36mInput Destroy (0.5ms)[0m  [1m[31mDELETE FROM "inputs" WHERE "inputs"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/inputs_controller.rb:52:in `destroy'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/inputs_controller.rb:52:in `destroy'
+Redirected to http://localhost:3000/inputs
+Completed 302 Found in 26ms (ActiveRecord: 3.2ms | Allocations: 3344)
+
+
+Started GET "/inputs" for ::1 at 2021-06-27 15:02:06 -0400
+Processing by InputsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering inputs/index.html.erb within layouts/application
+  [1m[36mInput Load (0.2ms)[0m  [1m[34mSELECT "inputs".* FROM "inputs"[0m
+  ↳ app/views/inputs/index.html.erb:18
+  Rendered inputs/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 851)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 20.2ms | Allocations: 4286)
+Completed 200 OK in 21ms (Views: 20.6ms | ActiveRecord: 0.2ms | Allocations: 4753)
+
+
+Started GET "/inputs/new" for ::1 at 2021-06-27 15:03:50 -0400
+Processing by InputsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering inputs/new.html.erb within layouts/application
+  Rendered inputs/_form.html.erb (Duration: 2.0ms | Allocations: 1189)
+  Rendered inputs/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1300)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 4720)
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.0ms | Allocations: 5188)
+
+
+Started POST "/inputs" for ::1 at 2021-06-27 15:04:13 -0400
+Processing by InputsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "input"=>{"email"=>"janedoe@sample", "firstname"=>"Jane", "lastname"=>"Doe", "language"=>"Jibberish", "proficiency"=>"2"}, "commit"=>"Create Input"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/inputs_controller.rb:27:in `block in create'
+  [1m[36mInput Create (0.5ms)[0m  [1m[32mINSERT INTO "inputs" ("email", "firstname", "lastname", "language", "proficiency", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "janedoe@sample"], ["firstname", "Jane"], ["lastname", "Doe"], ["language", "Jibberish"], ["proficiency", 2], ["created_at", "2021-06-27 19:04:13.520943"], ["updated_at", "2021-06-27 19:04:13.520943"]]
+  ↳ app/controllers/inputs_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/inputs_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/inputs/3
+Completed 302 Found in 10ms (ActiveRecord: 2.5ms | Allocations: 2516)
+
+
+Started GET "/inputs/3" for ::1 at 2021-06-27 15:04:13 -0400
+Processing by InputsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mInput Load (0.2ms)[0m  [1m[34mSELECT "inputs".* FROM "inputs" WHERE "inputs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/inputs_controller.rb:62:in `set_input'
+  Rendering layout layouts/application.html.erb
+  Rendering inputs/show.html.erb within layouts/application
+  Rendered inputs/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 115)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 3541)
+Completed 200 OK in 10ms (Views: 8.4ms | ActiveRecord: 0.2ms | Allocations: 4549)
+
+
+Started GET "/inputs" for ::1 at 2021-06-27 15:04:15 -0400
+Processing by InputsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering inputs/index.html.erb within layouts/application
+  [1m[36mInput Load (0.2ms)[0m  [1m[34mSELECT "inputs".* FROM "inputs"[0m
+  ↳ app/views/inputs/index.html.erb:18
+  Rendered inputs/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 947)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | Allocations: 4376)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.2ms | Allocations: 4837)
+
+
+Started GET "/inputs/new" for ::1 at 2021-06-27 15:04:19 -0400
+Processing by InputsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering inputs/new.html.erb within layouts/application
+  Rendered inputs/_form.html.erb (Duration: 2.5ms | Allocations: 1189)
+  Rendered inputs/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1300)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.2ms | Allocations: 4714)
+Completed 200 OK in 11ms (Views: 9.7ms | ActiveRecord: 0.0ms | Allocations: 5180)
+
+
+Started POST "/inputs" for ::1 at 2021-06-27 15:04:37 -0400
+Processing by InputsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "input"=>{"email"=>"jilldoe@sample", "firstname"=>"Jill", "lastname"=>"Doe", "language"=>"Jibberish", "proficiency"=>"3"}, "commit"=>"Create Input"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/inputs_controller.rb:27:in `block in create'
+  [1m[36mInput Create (0.5ms)[0m  [1m[32mINSERT INTO "inputs" ("email", "firstname", "lastname", "language", "proficiency", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "jilldoe@sample"], ["firstname", "Jill"], ["lastname", "Doe"], ["language", "Jibberish"], ["proficiency", 3], ["created_at", "2021-06-27 19:04:37.100024"], ["updated_at", "2021-06-27 19:04:37.100024"]]
+  ↳ app/controllers/inputs_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/inputs_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/inputs/4
+Completed 302 Found in 10ms (ActiveRecord: 2.5ms | Allocations: 2516)
+
+
+Started GET "/inputs/4" for ::1 at 2021-06-27 15:04:37 -0400
+Processing by InputsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mInput Load (0.2ms)[0m  [1m[34mSELECT "inputs".* FROM "inputs" WHERE "inputs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/inputs_controller.rb:62:in `set_input'
+  Rendering layout layouts/application.html.erb
+  Rendering inputs/show.html.erb within layouts/application
+  Rendered inputs/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 115)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 3541)
+Completed 200 OK in 10ms (Views: 7.3ms | ActiveRecord: 0.2ms | Allocations: 4549)
+
+
+Started GET "/inputs" for ::1 at 2021-06-27 15:04:39 -0400
+Processing by InputsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering inputs/index.html.erb within layouts/application
+  [1m[36mInput Load (0.4ms)[0m  [1m[34mSELECT "inputs".* FROM "inputs"[0m
+  ↳ app/views/inputs/index.html.erb:18
+  Rendered inputs/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1054)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 4480)
+Completed 200 OK in 13ms (Views: 10.8ms | ActiveRecord: 0.4ms | Allocations: 4941)
+
+
+Started GET "/inputs/new" for ::1 at 2021-06-27 15:04:43 -0400
+Processing by InputsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering inputs/new.html.erb within layouts/application
+  Rendered inputs/_form.html.erb (Duration: 3.1ms | Allocations: 1189)
+  Rendered inputs/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1300)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | Allocations: 4714)
+Completed 200 OK in 12ms (Views: 10.7ms | ActiveRecord: 0.0ms | Allocations: 5180)
+
+
+Started POST "/inputs" for ::1 at 2021-06-27 15:04:57 -0400
+Processing by InputsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "input"=>{"email"=>"bobdoe@sample", "firstname"=>"Bob", "lastname"=>"Doe", "language"=>"Spanish", "proficiency"=>"6"}, "commit"=>"Create Input"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/inputs_controller.rb:27:in `block in create'
+  [1m[36mInput Create (0.5ms)[0m  [1m[32mINSERT INTO "inputs" ("email", "firstname", "lastname", "language", "proficiency", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "bobdoe@sample"], ["firstname", "Bob"], ["lastname", "Doe"], ["language", "Spanish"], ["proficiency", 6], ["created_at", "2021-06-27 19:04:57.719188"], ["updated_at", "2021-06-27 19:04:57.719188"]]
+  ↳ app/controllers/inputs_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/inputs_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/inputs/5
+Completed 302 Found in 9ms (ActiveRecord: 3.1ms | Allocations: 2516)
+
+
+Started GET "/inputs/5" for ::1 at 2021-06-27 15:04:57 -0400
+Processing by InputsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mInput Load (0.2ms)[0m  [1m[34mSELECT "inputs".* FROM "inputs" WHERE "inputs"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/inputs_controller.rb:62:in `set_input'
+  Rendering layout layouts/application.html.erb
+  Rendering inputs/show.html.erb within layouts/application
+  Rendered inputs/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 115)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 3541)
+Completed 200 OK in 10ms (Views: 7.7ms | ActiveRecord: 0.2ms | Allocations: 4549)
+
+
+Started GET "/inputs" for ::1 at 2021-06-27 15:05:00 -0400
+Processing by InputsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering inputs/index.html.erb within layouts/application
+  [1m[36mInput Load (0.2ms)[0m  [1m[34mSELECT "inputs".* FROM "inputs"[0m
+  ↳ app/views/inputs/index.html.erb:18
+  Rendered inputs/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1168)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | Allocations: 4594)
+Completed 200 OK in 12ms (Views: 10.9ms | ActiveRecord: 0.2ms | Allocations: 5055)
+
+
+Started GET "/inputs/2" for ::1 at 2021-06-27 15:05:06 -0400
+Processing by InputsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mInput Load (0.4ms)[0m  [1m[34mSELECT "inputs".* FROM "inputs" WHERE "inputs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/inputs_controller.rb:62:in `set_input'
+  Rendering layout layouts/application.html.erb
+  Rendering inputs/show.html.erb within layouts/application
+  Rendered inputs/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 113)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 3539)
+Completed 200 OK in 11ms (Views: 7.4ms | ActiveRecord: 0.4ms | Allocations: 4542)
+
+
+Started GET "/inputs" for ::1 at 2021-06-27 15:05:07 -0400
+Processing by InputsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering inputs/index.html.erb within layouts/application
+  [1m[36mInput Load (0.2ms)[0m  [1m[34mSELECT "inputs".* FROM "inputs"[0m
+  ↳ app/views/inputs/index.html.erb:18
+  Rendered inputs/index.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1168)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | Allocations: 4604)
+Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 0.2ms | Allocations: 5067)
+
+
+Started GET "/inputs/new" for ::1 at 2021-06-27 15:05:08 -0400
+Processing by InputsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering inputs/new.html.erb within layouts/application
+  Rendered inputs/_form.html.erb (Duration: 4.0ms | Allocations: 1189)
+  Rendered inputs/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1300)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 4722)
+Completed 200 OK in 15ms (Views: 13.2ms | ActiveRecord: 0.0ms | Allocations: 5189)
+
+
+Started POST "/inputs" for ::1 at 2021-06-27 15:05:28 -0400
+Processing by InputsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "input"=>{"email"=>"timdoe@sample", "firstname"=>"Tim", "lastname"=>"Doe", "language"=>"Spanish", "proficiency"=>"3"}, "commit"=>"Create Input"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/inputs_controller.rb:27:in `block in create'
+  [1m[36mInput Create (0.7ms)[0m  [1m[32mINSERT INTO "inputs" ("email", "firstname", "lastname", "language", "proficiency", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "timdoe@sample"], ["firstname", "Tim"], ["lastname", "Doe"], ["language", "Spanish"], ["proficiency", 3], ["created_at", "2021-06-27 19:05:28.071639"], ["updated_at", "2021-06-27 19:05:28.071639"]]
+  ↳ app/controllers/inputs_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/inputs_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/inputs/6
+Completed 302 Found in 9ms (ActiveRecord: 2.6ms | Allocations: 2512)
+
+
+Started GET "/inputs/6" for ::1 at 2021-06-27 15:05:28 -0400
+Processing by InputsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mInput Load (0.3ms)[0m  [1m[34mSELECT "inputs".* FROM "inputs" WHERE "inputs"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/inputs_controller.rb:62:in `set_input'
+  Rendering layout layouts/application.html.erb
+  Rendering inputs/show.html.erb within layouts/application
+  Rendered inputs/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 115)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 3547)
+Completed 200 OK in 10ms (Views: 7.9ms | ActiveRecord: 0.3ms | Allocations: 4557)
+
+
+Started GET "/inputs" for ::1 at 2021-06-27 15:05:30 -0400
+Processing by InputsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering inputs/index.html.erb within layouts/application
+  [1m[36mInput Load (0.2ms)[0m  [1m[34mSELECT "inputs".* FROM "inputs"[0m
+  ↳ app/views/inputs/index.html.erb:18
+  Rendered inputs/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1281)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 4707)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.2ms | Allocations: 5168)
+
+
+Started GET "/inputs" for ::1 at 2021-06-27 20:54:48 -0400
+  
+ActiveRecord::NoDatabaseError (FATAL:  database "backend" does not exist
+):
+  
+activerecord (6.1.4) lib/active_record/connection_adapters/postgresql_adapter.rb:81:in `rescue in new_client'
+activerecord (6.1.4) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (6.1.4) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (6.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `public_send'
+activerecord (6.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `new_connection'
+activerecord (6.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:926:in `checkout_new_connection'
+activerecord (6.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:905:in `try_to_checkout_new_connection'
+activerecord (6.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:866:in `acquire_connection'
+activerecord (6.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:588:in `checkout'
+activerecord (6.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:428:in `connection'
+activerecord (6.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:1128:in `retrieve_connection'
+activerecord (6.1.4) lib/active_record/connection_handling.rb:327:in `retrieve_connection'
+activerecord (6.1.4) lib/active_record/connection_handling.rb:283:in `connection'
+activerecord (6.1.4) lib/active_record/migration.rb:611:in `connection'
+activerecord (6.1.4) lib/active_record/migration.rb:606:in `build_watcher'
+activerecord (6.1.4) lib/active_record/migration.rb:588:in `block in call'
+activerecord (6.1.4) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.4) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.4) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-mini-profiler (2.3.2) lib/mini_profiler/profiler.rb:384:in `call'
+webpacker (5.4.0) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.0) lib/rack/proxy.rb:63:in `call'
+railties (6.1.4) lib/rails/engine.rb:539:in `call'
+puma (5.3.2) lib/puma/configuration.rb:249:in `call'
+puma (5.3.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.3.2) lib/puma/thread_pool.rb:338:in `with_force_shutdown'
+puma (5.3.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.3.2) lib/puma/server.rb:438:in `process_client'
+puma (5.3.2) lib/puma/thread_pool.rb:145:in `block in spawn_thread'
+Started GET "/inputs" for ::1 at 2021-06-27 23:44:40 -0400
+  [1m[35m (13.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (9.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 1 pending migration:
+
+20210627184642_create_inputs.rb
+
+
+):
+  
+activerecord (6.1.4) lib/active_record/migration.rb:625:in `check_pending!'
+activerecord (6.1.4) lib/active_record/migration.rb:590:in `block (2 levels) in call'
+activesupport (6.1.4) lib/active_support/evented_file_update_checker.rb:59:in `execute'
+activerecord (6.1.4) lib/active_record/migration.rb:595:in `block in call'
+activerecord (6.1.4) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.4) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.4) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.4) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-mini-profiler (2.3.2) lib/mini_profiler/profiler.rb:384:in `call'
+webpacker (5.4.0) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.0) lib/rack/proxy.rb:63:in `call'
+railties (6.1.4) lib/rails/engine.rb:539:in `call'
+puma (5.3.2) lib/puma/configuration.rb:249:in `call'
+puma (5.3.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.3.2) lib/puma/thread_pool.rb:338:in `with_force_shutdown'
+puma (5.3.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.3.2) lib/puma/server.rb:438:in `process_client'
+puma (5.3.2) lib/puma/thread_pool.rb:145:in `block in spawn_thread'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4957472466607876845)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateInputs (20210627184642)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (13.3ms)[0m  [1m[35mCREATE TABLE "inputs" ("id" bigserial primary key, "email" text, "firstname" text, "lastname" text, "language" text, "proficiency" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210627184642"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (2.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-06-28 03:44:56.117320"], ["updated_at", "2021-06-28 03:44:56.117320"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4957472466607876845)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/inputs" for ::1 at 2021-06-27 23:45:03 -0400
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by InputsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering inputs/index.html.erb within layouts/application
+  [1m[36mInput Load (2.0ms)[0m  [1m[34mSELECT "inputs".* FROM "inputs"[0m
+  ↳ app/views/inputs/index.html.erb:18
+  Rendered inputs/index.html.erb within layouts/application (Duration: 7.7ms | Allocations: 1508)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 58.4ms | Allocations: 7832)
+Completed 200 OK in 83ms (Views: 60.3ms | ActiveRecord: 2.0ms | Allocations: 11361)
+
+
+Started GET "/inputs/new" for ::1 at 2021-06-27 23:45:06 -0400
+Processing by InputsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering inputs/new.html.erb within layouts/application
+  Rendered inputs/_form.html.erb (Duration: 31.9ms | Allocations: 3628)
+  Rendered inputs/new.html.erb within layouts/application (Duration: 35.1ms | Allocations: 3997)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 42.2ms | Allocations: 7413)
+Completed 200 OK in 70ms (Views: 43.3ms | ActiveRecord: 13.2ms | Allocations: 12886)
+
+
+Started POST "/inputs" for ::1 at 2021-06-27 23:45:26 -0400
+Processing by InputsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "input"=>{"email"=>"laurendoe@sample.com", "firstname"=>"Lauren", "lastname"=>"Doe", "language"=>"Spanish", "proficiency"=>"10"}, "commit"=>"Create Input"}
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/inputs_controller.rb:27:in `block in create'
+  [1m[36mInput Create (1.7ms)[0m  [1m[32mINSERT INTO "inputs" ("email", "firstname", "lastname", "language", "proficiency", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "laurendoe@sample.com"], ["firstname", "Lauren"], ["lastname", "Doe"], ["language", "Spanish"], ["proficiency", 10], ["created_at", "2021-06-28 03:45:26.175611"], ["updated_at", "2021-06-28 03:45:26.175611"]]
+  ↳ app/controllers/inputs_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/inputs_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/inputs/1
+Completed 302 Found in 13ms (ActiveRecord: 5.1ms | Allocations: 3466)
+
+
+Started GET "/inputs/1" for ::1 at 2021-06-27 23:45:26 -0400
+Processing by InputsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mInput Load (2.3ms)[0m  [1m[34mSELECT "inputs".* FROM "inputs" WHERE "inputs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/inputs_controller.rb:62:in `set_input'
+  Rendering layout layouts/application.html.erb
+  Rendering inputs/show.html.erb within layouts/application
+  Rendered inputs/show.html.erb within layouts/application (Duration: 2.3ms | Allocations: 349)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 3777)
+Completed 200 OK in 25ms (Views: 12.8ms | ActiveRecord: 3.8ms | Allocations: 5810)
+
+
+Started GET "/inputs" for ::1 at 2021-06-27 23:45:28 -0400
+Processing by InputsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering inputs/index.html.erb within layouts/application
+  [1m[36mInput Load (1.3ms)[0m  [1m[34mSELECT "inputs".* FROM "inputs"[0m
+  ↳ app/views/inputs/index.html.erb:18
+  Rendered inputs/index.html.erb within layouts/application (Duration: 5.1ms | Allocations: 1031)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 4457)
+Completed 200 OK in 14ms (Views: 11.8ms | ActiveRecord: 1.3ms | Allocations: 4918)
+
+
